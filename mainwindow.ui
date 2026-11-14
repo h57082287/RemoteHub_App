@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>760</width><height>370</height></rect></property>
+  <property name="minimumSize"><size><width>620</width><height>320</height></size></property>
+  <property name="windowTitle"><string>RemoteHub · USB 控制中心</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing"><number>0</number></property>
+    <property name="leftMargin"><number>28</number></property>
+    <property name="topMargin"><number>22</number></property>
+    <property name="rightMargin"><number>28</number></property>
+    <property name="bottomMargin"><number>22</number></property>
+    <item>
+     <widget class="QWidget" name="titleBar">
+      <property name="minimumSize"><size><width>0</width><height>44</height></size></property>
+      <layout class="QHBoxLayout" name="headerLayout">
+       <property name="spacing"><number>12</number></property>
+       <property name="leftMargin"><number>0</number></property>
+       <property name="topMargin"><number>0</number></property>
+       <property name="rightMargin"><number>0</number></property>
+       <property name="bottomMargin"><number>0</number></property>
+       <item><widget class="QLabel" name="appIcon"><property name="minimumSize"><size><width>36</width><height>36</height></size></property><property name="maximumSize"><size><width>36</width><height>36</height></size></property><property name="text"><string/></property></widget></item>
+       <item>
+        <layout class="QVBoxLayout" name="titleLayout">
+         <property name="spacing"><number>2</number></property>
+         <item><widget class="QLabel" name="titleLabel"><property name="text"><string>RemoteHub</string></property></widget></item>
+         <item><widget class="QLabel" name="subtitleLabel"><property name="text"><string>4 PORT / USB HUB</string></property></widget></item>
+        </layout>
+       </item>
+       <item><spacer name="headerSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+       <item><widget class="QLabel" name="previewLabel"><property name="text"><string>裝置預覽</string></property><property name="toolTip"><string>USB Hub 外觀與燈效預覽</string></property></widget></item>
+       <item><widget class="QPushButton" name="minimizeButton"><property name="minimumSize"><size><width>30</width><height>30</height></size></property><property name="maximumSize"><size><width>30</width><height>30</height></size></property><property name="toolTip"><string>最小化</string></property><property name="accessibleName"><string>最小化視窗</string></property><property name="text"><string/></property></widget></item>
+       <item><widget class="QPushButton" name="closeButton"><property name="minimumSize"><size><width>30</width><height>30</height></size></property><property name="maximumSize"><size><width>30</width><height>30</height></size></property><property name="toolTip"><string>關閉</string></property><property name="accessibleName"><string>關閉視窗</string></property><property name="text"><string/></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="HubView" name="hubView">
+      <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Expanding"><horstretch>1</horstretch><verstretch>1</verstretch></sizepolicy></property>
+      <property name="minimumSize"><size><width>0</width><height>208</height></size></property>
+      <property name="focusPolicy"><enum>Qt::StrongFocus</enum></property>
+      <property name="toolTip"><string>按住滑鼠左鍵任意旋轉；滾輪縮放；方向鍵旋轉；Home 回到正視圖。</string></property>
+      <property name="accessibleName"><string>可旋轉的四埠 USB Hub 3D 預覽</string></property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="controlBar">
+      <layout class="QHBoxLayout" name="controlsLayout">
+       <property name="spacing"><number>12</number></property>
+       <property name="leftMargin"><number>0</number></property>
+       <property name="topMargin"><number>6</number></property>
+       <property name="rightMargin"><number>0</number></property>
+       <property name="bottomMargin"><number>0</number></property>
+       <item><widget class="QPushButton" name="rgbButton"><property name="minimumSize"><size><width>112</width><height>36</height></size></property><property name="toolTip"><string>開啟或關閉正面外框的 RGB 流動光效</string></property><property name="text"><string>RGB 光效</string></property><property name="checkable"><bool>true</bool></property><property name="checked"><bool>true</bool></property></widget></item>
+       <item><spacer name="leftControlSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+       <item><widget class="QLabel" name="gestureLabel"><property name="text"><string>拖曳旋轉 · 滾輪縮放</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+       <item><spacer name="rightControlSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+       <item><widget class="QPushButton" name="resetViewButton"><property name="minimumSize"><size><width>144</width><height>36</height></size></property><property name="toolTip"><string>面朝四個 USB 插槽，並重設縮放（Home）</string></property><property name="text"><string>回到正視圖</string></property><property name="shortcut"><string>Home</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget><class>HubView</class><extends>QOpenGLWidget</extends><header>hubview.h</header><container>0</container></customwidget>
+ </customwidgets>
+ <tabstops><tabstop>hubView</tabstop><tabstop>rgbButton</tabstop><tabstop>resetViewButton</tabstop><tabstop>minimizeButton</tabstop><tabstop>closeButton</tabstop></tabstops>
+ <resources/>
+ <connections/>
+</ui>
